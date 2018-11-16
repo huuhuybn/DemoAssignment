@@ -3,6 +3,8 @@ package vn.edu.poly.demoassignment;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
+import android.support.v7.widget.GridLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
@@ -13,8 +15,21 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 
+import java.util.ArrayList;
+import java.util.List;
+
+import vn.edu.poly.demoassignment.adapter.HomeAdapter;
+import vn.edu.poly.demoassignment.model.Wallpaper;
+
 public class MainActivity extends BaseActivity
         implements NavigationView.OnNavigationItemSelectedListener {
+
+
+    private RecyclerView lvList;
+
+    private HomeAdapter homeAdapter;
+    private GridLayoutManager gridLayoutManager;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,6 +55,23 @@ public class MainActivity extends BaseActivity
 
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
+
+
+        lvList = findViewById(R.id.lvList);
+
+        List<Wallpaper> wallpapers = new ArrayList<>();
+        for (int i = 0; i < 15; i++) {
+            Wallpaper wallpaper
+                    = new Wallpaper();
+            wallpapers.add(wallpaper);
+        }
+
+        homeAdapter = new HomeAdapter(this, wallpapers);
+        gridLayoutManager = new GridLayoutManager(this, 2);
+
+        lvList.setAdapter(homeAdapter);
+        lvList.setLayoutManager(gridLayoutManager);
+
     }
 
     @Override

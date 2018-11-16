@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="100dp"
+    android:layout_height="100dp">
+
+    <ImageView
+        android:scaleType="centerCrop"
+        android:src="@drawable/bg_splash"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+
+    <vn.edu.poly.demoassignment.view.RegularTextView
+        android:id="@+id/textView2"
+        android:layout_width="wrap_content"
+        android:textColor="@android:color/white"
+        android:layout_height="wrap_content"
+        android:drawableLeft="@drawable/ic_eye"
+        android:layout_marginBottom="8dp"
+        android:drawablePadding="4dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginStart="8dp"
+        android:text="10"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <vn.edu.poly.demoassignment.view.RegularTextView
+        android:id="@+id/textView3"
+        android:drawablePadding="4dp"
+        android:drawableLeft="@drawable/ic_heart"
+        android:layout_width="wrap_content"
+        android:textColor="@android:color/white"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginStart="8dp"
+        android:text="10"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/textView2" />
+
+
+</android.support.constraint.ConstraintLayout>

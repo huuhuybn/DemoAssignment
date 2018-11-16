@@ -18,8 +18,8 @@ import vn.edu.poly.demoassignment.model.Wallpaper;
 
 public class HomeAdapter extends Adapter<HomeAdapter.HomeHolder> {
 
-    public final int HEADER = 1;
-    public final int ITEM = 0;
+    public static final int HEADER = 1;
+    public static final int ITEM = 0;
 
     private Context context;
     private List<Wallpaper> wallpapers;
@@ -40,10 +40,10 @@ public class HomeAdapter extends Adapter<HomeAdapter.HomeHolder> {
     @Override
     public HomeHolder onCreateViewHolder(@NonNull ViewGroup viewGroup, int i) {
         View view;
-        if (i % 5 == 0) {
-            view = LayoutInflater.from(context).inflate(R.layout.header, viewGroup, false);
-        } else {
+        if (getItemViewType(i) == HEADER) {
             view = LayoutInflater.from(context).inflate(R.layout.item, viewGroup, false);
+        } else {
+            view = LayoutInflater.from(context).inflate(R.layout.header, viewGroup, false);
         }
         return new HomeHolder(view);
     }

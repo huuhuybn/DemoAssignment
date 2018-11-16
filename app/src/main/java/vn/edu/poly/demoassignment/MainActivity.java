@@ -20,6 +20,7 @@ import java.util.List;
 
 import vn.edu.poly.demoassignment.adapter.HomeAdapter;
 import vn.edu.poly.demoassignment.model.Wallpaper;
+import vn.edu.poly.demoassignment.view.ItemDecorationAlbumColumns;
 
 public class MainActivity extends BaseActivity
         implements NavigationView.OnNavigationItemSelectedListener {
@@ -68,6 +69,15 @@ public class MainActivity extends BaseActivity
 
         homeAdapter = new HomeAdapter(this, wallpapers);
         gridLayoutManager = new GridLayoutManager(this, 2);
+
+        gridLayoutManager.setSpanSizeLookup(new GridLayoutManager.SpanSizeLookup() {
+            @Override
+            public int getSpanSize(int i) {
+                if (i % 5 == 0)
+                    return 2;
+                else return 1;
+            }
+        });
 
         lvList.setAdapter(homeAdapter);
         lvList.setLayoutManager(gridLayoutManager);
